@@ -1,0 +1,8 @@
+.header{
+  inline-size: 100%;
+  padding: 2em 0;
+  font-size: 1.5em;
+  text-align: center;
+  color: #fff;
+  background-color: rgb(79, 207, 19);
+}

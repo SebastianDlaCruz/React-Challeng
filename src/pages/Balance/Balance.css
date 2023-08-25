@@ -1,0 +1,17 @@
+.section-balance{
+  display: flex;
+  flex-direction: column;
+  min-height: 550px;
+}
+
+.link{
+  position:absolute;
+  top: 97%;
+  left: 6%;
+  padding: 1.2em;
+  border-radius: 10px;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  background-color: rgb(79, 207, 19);
+}

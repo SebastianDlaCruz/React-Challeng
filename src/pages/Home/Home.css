@@ -1,0 +1,16 @@
+main{
+  text-align: center;
+}
+
+main p {
+  font-size: 1.5rem;
+}
+
+.section{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 21px;
+  min-height: 100vh;
+  padding: 32px;
+}
