@@ -3,6 +3,15 @@ import { AccountInfo } from "../model/AccountInfo.model";
 import { getAccountInfo } from "../services/getAccountInfo.services";
 import { filterByCurrencyType } from "../utilities/filterByCurrencyType.utilities";
 
+/**
+ * Hook personalizado para obtener y filtrar información de cuentas.
+ * @returns {{
+*   data: AccountInfo[],
+*   message: string,
+*   isSuccess: boolean
+* }} - Datos y estado del proceso de obtención de información de cuentas.
+*/
+
 const useAccountInfo = () => {
 
   const [message, setMessage] = useState('');

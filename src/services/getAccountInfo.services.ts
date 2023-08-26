@@ -1,5 +1,12 @@
 import { ApiResponse } from "../model/AccountInfo.model";
 
+
+/**
+ * Obtiene la información de cuentas de la API.
+ * @async
+ * @returns {Promise<ApiResponse>} - Promesa que se resuelve con la respuesta de la API.
+ */
+
 export const getAccountInfo = async (): Promise<ApiResponse> => {
   try {
 

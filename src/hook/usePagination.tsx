@@ -1,5 +1,25 @@
 import { useState } from "react";
 
+
+/**
+ * @template T
+ * @typedef {Object} Props
+ * @property {T[]} initialData - Los datos iniciales a paginar.
+ * @property {number} itemsPerPage - Número de elementos por página.
+ */
+
+/**
+ * Hook personalizado para la paginación.
+ * @template T
+ * @param {Props<T>} props - Propiedades del hook.
+ * @returns {{
+*   nextPage: () => void,
+*   backPage: () => void,
+*   items: T[],
+*   currentPage: number
+* }} - Funciones y datos de paginación.
+*/
+
 interface Props<T> {
   initialData: T[];
   itemsPerPage: number;

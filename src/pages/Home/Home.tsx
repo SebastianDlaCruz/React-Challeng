@@ -5,44 +5,48 @@ import Header from "../../components/Header/Header";
 import useAccountInfo from "../../hook/useAccountInfo";
 import usePagination from "../../hook/usePagination";
 import './Home.css';
-
+/**
+ * Página principal que permite consultar el saldo y seleccionar cuentas.
+ * @function
+ * @returns {JSX.Element} - Elemento JSX que representa la página principal.
+ */
 const Home = () => {
 
-  const{idCuenta} = useParams();
-  const {data,isSuccess,message} = useAccountInfo();
-  const {items,nextPage,currentPage,backPage} = usePagination({
+  const { idCuenta } = useParams();
+  const { data, isSuccess, message } = useAccountInfo();
+  const { items, nextPage, currentPage, backPage } = usePagination({
     initialData: data,
     itemsPerPage: 6
   });
 
 
-if(idCuenta) return <Outlet />
+  if (idCuenta) return <Outlet />
 
   return (
     <>
-      <Header/>
+      <Header />
       <main>
         <p>Consulta de saldo</p>
         <h1>Selecciona la cuenta a consultar</h1>
 
         <section className="section">
-        {
-            currentPage === 2 && <Button  text=" <<< Opciones anteriores " onClick={backPage}/> 
-        }
           {
-            isSuccess?(
-              items.map((item,index) => (<Card accountType={item.tipo_letras} nro={item.n} key={index}/>))
-            ):(
+            currentPage === 2 && <Button text=" <<< Opciones anteriores " onClick={backPage} />
+          }
+          {
+            isSuccess ? (
+              items.map((item, index) => (<Card accountType={item.tipo_letras} nro={item.n} key={index} />))
+            ) : (
               <p>{message}</p>
             )
-          }  
-          
+          }
+
           {
-            currentPage === 1 && <Button  text="Otras opciones >>>" onClick={nextPage}/> 
+            currentPage === 1 && <Button text="Otras opciones >>>" onClick={nextPage} />
           }
         </section>
 
-      </main> 
+      </main>
     </>
   )
 }

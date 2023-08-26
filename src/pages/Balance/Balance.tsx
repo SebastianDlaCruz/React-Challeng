@@ -5,35 +5,39 @@ import useAccountInfo from "../../hook/useAccountInfo";
 import { filterAccount } from "../../utilities/filterAccount.utilities";
 import { returnName } from "../../utilities/filterByCurrencyType.utilities";
 import './Balance.css';
-
+/**
+ * Página de consulta de saldo de cuenta.
+ * @function
+ * @returns {JSX.Element} - Elemento JSX que representa la página de consulta de saldo.
+ */
 const Balance = () => {
-  const {data,isSuccess}=useAccountInfo();
-  const {idCuenta}= useParams();
-  const item = filterAccount(idCuenta,data);
+  const { data, isSuccess } = useAccountInfo();
+  const { idCuenta } = useParams();
+  const item = filterAccount(idCuenta, data);
 
   return (
     <>
-    <Header/>
-    <main>
-      <p>Consulta de Saldo</p>
-      <h1>Este es tu saldo actual</h1>
-      <section className="section-balance">
-        {
-          isSuccess && item !== undefined?(
-          <>
-            <p>Saldo de la cuenta {item.saldo}</p>
-            <p>Tipo de cuenta : {filterCurrencyType(item.tipo_letras)} en  {returnName(item.moneda)}</p>
-            <p>Numero de cuenta: {item.n}</p>
-            </>
-          ):(<p>...cargando</p>)
-        }
+      <Header />
+      <main>
+        <p>Consulta de Saldo</p>
+        <h1>Este es tu saldo actual</h1>
+        <section className="section-balance">
+          {
+            isSuccess && item !== undefined ? (
+              <>
+                <p>Saldo de la cuenta {item.saldo}</p>
+                <p>Tipo de cuenta : {filterCurrencyType(item.tipo_letras)} en  {returnName(item.moneda)}</p>
+                <p>Numero de cuenta: {item.n}</p>
+              </>
+            ) : (<p>...cargando</p>)
+          }
 
-      </section>
+        </section>
 
-    <Link to={'/'} className="link">Salir</Link>  
+        <Link to={'/'} className="link">Salir</Link>
 
-    </main>
-      
+      </main>
+
     </>
   )
 }
